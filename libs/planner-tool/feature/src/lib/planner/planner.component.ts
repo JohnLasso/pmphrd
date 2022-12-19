@@ -17,25 +17,51 @@ export class PlannerComponent {
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
   @ViewChild(GridApi) gridApi!: GridApi;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
+
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
     {
-      headerName: 'Edit',
-      cellRenderer: () =>
-        ' <fa-icon size="2x" icon="user-circle"></fa-icon>',
-    },
-    { field: 'übung',
+      headerName: 'übung',
+      field: 'übung',
       cellEditor: 'agSelectCellEditor',
       cellEditorParams: {
-        values:['bench', 'kniebeugen'],
+        values: ['kniebeugen'],
         //handleGridCellEvent: this.onDataChangeHandler.bind(this),
       },
       editable: true
     },
-    { field: 'wiederholungen', editable: true},
-    { field: 'kilo', editable: true },
-    { headerName: 'total', valueGetter: this.abValueGetter},
+    {
+      headerName: 'Übung',
+      field: 'Übung',
+      editable: true,
+      cellEditor: 'agSelectCellEditor',
+      cellEditorParams(params: any){
+        if (params.data.Übung === 'Kniebeuge Fokusübung') {
+          {
+            return {
+              values: ['Highbar-Kniebeuge', 'Front-Kniebeuge', 'Lowbar-Kniebeuge']
+            };
+          }
+        }
+        if (params.data.Übung === 'Bankdrücken Variation') {
+          {
+            return {
+              values: ['Enges Bankdrücken', 'Dips', 'Schrägbankdrücken']
+            };
+          }
+        }
+        else {
+          return {
+            values: ['New York']
+          };
+        }
+      }
+    },
+    {field: 'wiederholungen', editable: true},
+    {field: 'kilo', editable: true},
+    {headerName: 'total', valueGetter: this.abValueGetter},
   ];
 
   // DefaultColDef sets props common to all Columns
@@ -47,7 +73,13 @@ export class PlannerComponent {
   // Example load data from sever
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
-    this.rowData$ = of([{"übung": "bench", "wiederholungen": 0, "kilo": 0}])
+    this.rowData$ = of([{"Übung": "Kniebeuge Fokusübung", "wiederholungen": 0, "kilo": 0},
+      {"Übung": "Bankdrücken Variation", "wiederholungen": 0, "kilo": 0},
+      {"Übung": "Rückenübung Fokus", "wiederholungen": 0, "kilo": 0},
+      {"Übung": "OHP-Zusatzübung", "wiederholungen": 0, "kilo": 0},
+      {"Übung": "Rückenübung Variation", "wiederholungen": 0, "kilo": 0},
+      {"Übung": "Trizepsübung", "wiederholungen": 0, "kilo": 0},
+      {"Übung": "Bizepsübung", "wiederholungen": 0, "kilo": 0}])
   }
 
   addRowOnClick() {
@@ -57,13 +89,12 @@ export class PlannerComponent {
   }
 
 
-
   // Example of consuming Grid Event
-  onCellClicked( e: CellClickedEvent): void {
+  onCellClicked(e: CellClickedEvent): void {
     console.log('cellClicked', e);
   }
 
-   abValueGetter(params: ValueGetterParams) {
+  abValueGetter(params: ValueGetterParams) {
     return Number(params.data.kilo) * Number(params.data.wiederholungen)
   }
 
@@ -71,7 +102,6 @@ export class PlannerComponent {
   clearSelection(): void {
     this.agGrid.api.deselectAll();
   }
-
 
 
 }
