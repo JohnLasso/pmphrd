@@ -15,13 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@workout/auth": ["libs/auth/src/index.ts"],
       "@workout/data-models": ["libs/data-models/src/index.ts"],
       "@workout/feature": ["libs/feature/src/index.ts"],
       "@workout/material": ["libs/material/src/index.ts"],
       "@workout/planner-tool/feature": [
         "libs/planner-tool/feature/src/index.ts"
-      ]
+      ],
+      "@workout/shell": ["libs/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

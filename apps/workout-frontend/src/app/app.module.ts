@@ -3,16 +3,16 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {NxWelcomeComponent} from './nx-welcome.component';
-import {AuthModule, authRoutes} from "@workout/auth";
 import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ShellModule, authRoutes} from "@workout/shell";
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot([{
-    path: 'auth',
+    path: '',
     children: authRoutes
-  }], {initialNavigation: 'enabledNonBlocking'}), AuthModule],
+  }], {initialNavigation: 'enabledNonBlocking'}), ShellModule],
   providers: [],
   bootstrap: [AppComponent],
 })

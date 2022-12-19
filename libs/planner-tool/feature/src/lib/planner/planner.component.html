@@ -1,1 +1,21 @@
-<p>planner works!</p>
+<button mat-raised-button (click)="addRowOnClick()">Add Row</button>
+
+<div class="cardList">
+  <ag-grid-angular style="height: 350px"
+    fxFlex="50" fxLayout="column" fxFlex.lt-md="100"
+    class="ag-theme-material"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData$ | async"
+    [rowSelection]="'multiple'"
+    [pagination]="true"
+    [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+    (cellClicked)="onCellClicked($event)"
+  ></ag-grid-angular>
+</div>
+
+
+<!-- Button to clear selection -->
+<button mat-raised-button (click)="clearSelection()">Clear Selection</button>
+<!-- AG Grid Angular Component -->

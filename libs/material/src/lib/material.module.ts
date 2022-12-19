@@ -12,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {MatTabsModule} from "@angular/material/tabs";
 @NgModule({
   imports: [FlexLayoutModule,
     MatInputModule,
@@ -24,7 +25,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     MatProgressSpinnerModule,
     MatMenuModule,
     MatTableModule,
-    MatSelectModule],
+    MatSelectModule,
+    MatTabsModule],
   exports: [
     FlexLayoutModule,
     MatInputModule,
@@ -38,6 +40,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     MatMenuModule,
     MatTableModule,
     MatSelectModule,
+    MatTabsModule,
 
     FontAwesomeModule
   ]

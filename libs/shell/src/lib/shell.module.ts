@@ -39,7 +39,7 @@ export const authRoutes: Route[] = [
   declarations: [LoginComponent, LoginFormComponent, NavBarComponent],
   exports: [NavBarComponent]
 })
-export class AuthModule {
+export class ShellModule {
   constructor( faIconLibrary: FaIconLibrary) {
     faIconLibrary.addIcons(
       faCog,

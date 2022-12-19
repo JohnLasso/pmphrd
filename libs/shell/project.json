@@ -2,7 +2,7 @@
   "name": "auth",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/auth/src",
+  "sourceRoot": "/src",
   "prefix": "workout",
   "targets": {
     "test": {
