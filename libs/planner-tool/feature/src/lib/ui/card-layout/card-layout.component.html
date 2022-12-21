@@ -3,11 +3,18 @@
   <mat-card-header>
     <mat-card-title>Trainings cycle Week 1</mat-card-title>
     <mat-card-subtitle>Here you can skip through your training cycles (3-12 weeks)</mat-card-subtitle>
+    <mat-card-actions>
+      <div fxLayout="row" fxLayoutGap="20px">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+
   </mat-card-header>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">Move back</button>
-    <button mat-raised-button color="primary">Move to next mini cycle</button>
-  </mat-card-actions>
   <main class="content">
     <mat-card-content>
       <workout-tab></workout-tab>
