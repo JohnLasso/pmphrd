@@ -12,7 +12,6 @@ import {ShellModule, authRoutes} from "@workout/shell";
     path: '',
     children: authRoutes
   }], {initialNavigation: 'enabledNonBlocking'}), ShellModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {

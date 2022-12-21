@@ -16,7 +16,7 @@ import { CardLayoutComponent } from './ui/card-layout/card-layout.component';
     RouterModule.forChild(plannerToolFeatureRoutes),
     AgGridModule,
     HttpClientModule,
-    MaterialModule,
+    MaterialModule
   ],
   declarations: [
     PlannerComponent,
@@ -24,6 +24,6 @@ import { CardLayoutComponent } from './ui/card-layout/card-layout.component';
     TotalPerWeekComponent,
     CardLayoutComponent,
   ],
-  exports: [TabComponent],
+  exports: [TabComponent, CardLayoutComponent],
 })
 export class PlannerToolFeatureModule {}

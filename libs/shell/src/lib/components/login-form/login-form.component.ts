@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {Authenticate} from '@workout/data-models';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../../../../../auth/src/lib/data-access/auth/auth.service";
 
 @Component({
   selector: 'workout-login-form',
@@ -20,5 +21,8 @@ export class LoginFormComponent {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password
     } as Authenticate);
+  }
+
+  constructor(public authService: AuthService) {
   }
 }

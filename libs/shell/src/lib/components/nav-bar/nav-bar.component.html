@@ -12,6 +12,14 @@
         <button [routerLink]="['/planning']" mat-icon-button>
           <fa-icon size="2x" icon="user-circle"></fa-icon>
         </button>
+        <button *ngIf="!authService.isLoggedIn" mat-raised-button (click)="authService.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Log in with Google
+        </button>
+        <button *ngIf="authService.isLoggedIn" mat-raised-button (click)="authService.SignOut()">
+          <i class="fab fa-google-plus-g"></i>
+          Sign out
+        </button>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -22,6 +30,10 @@
         <a [routerLink]="['/login']" mat-list-item>Dashboard</a>
         <a [routerLink]="['/planning']" mat-list-item>
           <fa-icon size="2x" icon="user-circle"></fa-icon></a>
+        <button mat-raised-button (click)="authService.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Log in with Google
+        </button>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
@@ -29,3 +41,6 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
+
+

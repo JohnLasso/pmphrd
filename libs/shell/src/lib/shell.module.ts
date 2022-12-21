@@ -23,13 +23,23 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
+import {FirebaseModule} from "./firebase/firebase.module";
+import {AuthGuard} from "../../../auth/src/lib/data-access/auth/auth.guard";
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {AuthService} from "../../../auth/src/lib/data-access/auth/auth.service";
 export { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
+export {
+  AuthService,
+  AuthGuard
+}
 
 // lazy loading works
 export const authRoutes: Route[] = [
   { path: 'login', component: LoginComponent },
   {
     path: 'planning',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('@workout/planner-tool/feature').then(
         (m) => m.PlannerToolFeatureModule
@@ -38,14 +48,15 @@ export const authRoutes: Route[] = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, MaterialModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, MaterialModule, FirebaseModule],
   declarations: [
     LoginComponent,
     LoginFormComponent,
     NavBarComponent,
     FooterComponent,
   ],
-  exports: [NavBarComponent, FooterComponent],
+  providers: [AuthGuard, AuthService],
+  exports: [NavBarComponent, FooterComponent, FirebaseModule],
 })
 export class ShellModule {
   constructor(faIconLibrary: FaIconLibrary) {
@@ -63,4 +74,5 @@ export class ShellModule {
       faYoutube
     );
   }
+
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthService} from "../../../../../auth/src/lib/data-access/auth/auth.service";
 
 
 @Component({
@@ -7,18 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
-  logo = 'assets/logo.png';
-  navigation = [
-    { link: 'about', label: 'about' },
-    { link: 'feature-list', label: 'list' },
-    { link: 'examples', label: 'examples' }
-  ];
-  navigationSideMenu = [
-    ...this.navigation,
-    { link: 'settings', label: 'settings' }
-  ];
-
-  onLogoutClick() {
-    console.log('logout');
+  constructor(
+    public authService: AuthService
+  ) {
   }
 }
