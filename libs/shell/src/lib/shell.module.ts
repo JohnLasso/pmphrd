@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterModule, Route, RouterLink} from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 import { LoginComponent } from './containers/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { MaterialModule } from '@workout/material';
@@ -12,17 +12,18 @@ import {
   faRocket,
   faPowerOff,
   faUserCircle,
-  faPlayCircle
+  faPlayCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
   faMediumM,
   faTwitter,
   faInstagram,
-  faYoutube
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
-import {FaIconLibrary} from "@fortawesome/angular-fontawesome";
-export {NavBarComponent}  from './components/nav-bar/nav-bar.component';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './components/footer/footer.component';
+export { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 // lazy loading works
 export const authRoutes: Route[] = [
@@ -30,17 +31,24 @@ export const authRoutes: Route[] = [
   {
     path: 'planning',
     loadChildren: () =>
-      import('@workout/planner-tool/feature').then((m) => m.PlannerToolFeatureModule)
+      import('@workout/planner-tool/feature').then(
+        (m) => m.PlannerToolFeatureModule
+      ),
   },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule, ReactiveFormsModule, MaterialModule],
-  declarations: [LoginComponent, LoginFormComponent, NavBarComponent],
-  exports: [NavBarComponent]
+  declarations: [
+    LoginComponent,
+    LoginFormComponent,
+    NavBarComponent,
+    FooterComponent,
+  ],
+  exports: [NavBarComponent, FooterComponent],
 })
 export class ShellModule {
-  constructor( faIconLibrary: FaIconLibrary) {
+  constructor(faIconLibrary: FaIconLibrary) {
     faIconLibrary.addIcons(
       faCog,
       faBars,
@@ -55,5 +63,4 @@ export class ShellModule {
       faYoutube
     );
   }
-
 }

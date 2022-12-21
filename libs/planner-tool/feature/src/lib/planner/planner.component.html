@@ -1,5 +1,6 @@
 <ng-container *ngIf="currentCounterForNewColumn !== undefined">
 <button mat-raised-button (click)="addColumnOnClick()">Add Set</button>
+<button mat-flat-button (click)="addRowOnClick()">Add Row</button>
 
 <div class="cardList">
   <ag-grid-angular style="height: 350px"
@@ -12,12 +13,7 @@
     [pagination]="true"
     [animateRows]="true"
     (gridReady)="onGridReady($event)"
-    (cellClicked)="onCellClicked($event)"
   ></ag-grid-angular>
 </div>
 
-
-<!-- Button to clear selection -->
-<button mat-raised-button (click)="clearSelection()">Clear Selection</button>
-<!-- AG Grid Angular Component -->
 </ng-container>

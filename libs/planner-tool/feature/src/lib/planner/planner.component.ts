@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, ValueGetterParams} from "ag-grid-community";
+import {Component, ViewChild} from '@angular/core';
+import {ColDef, GridApi, GridOptions, GridReadyEvent, ValueGetterParams} from "ag-grid-community";
 import {Observable, of} from "rxjs";
 import {AgGridAngular} from "ag-grid-angular";
 import {HttpClient} from "@angular/common/http";
@@ -80,7 +80,7 @@ export class PlannerComponent {
 
   addRowOnClick() {
     this.gridApi.applyTransaction({
-      add: [{"übung": "", "wiederholungen": 0, "kilo": 0}]
+      add: [{"übung": "", "wiederholungen": 0, "kilo": 0, "volume": 0}]
     });
   }
 
@@ -124,25 +124,11 @@ export class PlannerComponent {
     })
   }
 
-
-  // Example of consuming Grid Event
-  onCellClicked(e: CellClickedEvent): void {
-    console.log('cellClicked', e);
-  }
-
   calculateVolumePerExcercise(params: ValueGetterParams, index: number) {
     let vol = 0;
     for (let i = 1; i <= index; i++) {
       vol += isNaN(Number(params.data?.['satz ' + i])) ? 0 : Number(params.data?.['satz ' + i]);
-
     }
     return vol;
   }
-
-  // Example using Grid's API
-  clearSelection(): void {
-    this.agGrid.api.deselectAll();
-  }
-
-
 }

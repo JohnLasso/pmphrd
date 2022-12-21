@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '@workout/material';
 import { TabComponent } from './ui/tab/tab.component';
 import { TotalPerWeekComponent } from './total-per-week/total-per-week.component';
+import { CardLayoutComponent } from './ui/card-layout/card-layout.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,12 @@ import { TotalPerWeekComponent } from './total-per-week/total-per-week.component
     HttpClientModule,
     MaterialModule,
   ],
-  declarations: [PlannerComponent, TabComponent, TotalPerWeekComponent],
+  declarations: [
+    PlannerComponent,
+    TabComponent,
+    TotalPerWeekComponent,
+    CardLayoutComponent,
+  ],
   exports: [TabComponent],
 })
 export class PlannerToolFeatureModule {}
