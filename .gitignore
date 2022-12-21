@@ -39,3 +39,6 @@ testem.log
 Thumbs.db
 
 .angular
+/libs/shell/src/lib/firebase/environments.prod.ts
+/libs/shell/src/lib/firebase/environments.ts
+#environment
