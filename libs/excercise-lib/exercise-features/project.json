@@ -1,0 +1,28 @@
+{
+  "name": "excercise-lib-exercise-features",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/excercise-lib/exercise-features/src",
+  "prefix": "workout",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "libs/excercise-lib/exercise-features/tsconfig.spec.json",
+        "karmaConfig": "libs/excercise-lib/exercise-features/karma.conf.js",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/excercise-lib/exercise-features/**/*.ts",
+          "libs/excercise-lib/exercise-features/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

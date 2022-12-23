@@ -27,12 +27,20 @@ import {FirebaseModule} from "./firebase/firebase.module";
 import {AuthGuard} from "../../../auth/src/lib/data-access/auth/auth.guard";
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {AuthService} from "../../../auth/src/lib/data-access/auth/auth.service";
+import {EffectsModule} from "@ngrx/effects";
+import {StoreModule} from "@ngrx/store";
+import {exerciseReducer} from "../../../excercise-lib/data-access/src/lib/store/exercises.reducer";
+import {ExerciseEffects} from "@workout/excercise-lib/data-access";
+import {ExerciseService} from "../../../excercise-lib/data-access/src/lib/services/exercise.service";
+import {HttpClientModule} from "@angular/common/http";
+import {ExcerciseLibExerciseFeaturesModule} from "@workout/excercise-lib/exercise-features";
 export { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 export {
   AuthService,
   AuthGuard
 }
+
 
 // lazy loading works
 export const authRoutes: Route[] = [
@@ -48,14 +56,16 @@ export const authRoutes: Route[] = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, MaterialModule, FirebaseModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule, MaterialModule, FirebaseModule,
+    StoreModule.forRoot({exercises: exerciseReducer}),
+    EffectsModule.forRoot([ExerciseEffects]), ExcerciseLibExerciseFeaturesModule],
   declarations: [
     LoginComponent,
     LoginFormComponent,
     NavBarComponent,
     FooterComponent,
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService, ExerciseService],
   exports: [NavBarComponent, FooterComponent, FirebaseModule],
 })
 export class ShellModule {
