@@ -1,5 +1,3 @@
-<p>exercise-library works!
-  <ng-container *ngFor="let exercise of exercises$ | async">
-    {{exercise.description}}
-  </ng-container>
-</p>
+<workout-exercise-lib-ui header="Auswahloptionen" label="Wählen Sie eine Option" [options]="options"
+                              [selectedOption]="selectedOption">
+</workout-exercise-lib-ui>

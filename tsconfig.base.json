@@ -13,6 +13,7 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "strict": false,
     "baseUrl": ".",
     "paths": {
       "@workout/auth": ["libs/auth/src/index.ts"],
@@ -23,10 +24,23 @@
       "@workout/excercise-lib/exercise-features": [
         "libs/excercise-lib/exercise-features/src/index.ts"
       ],
+      "@workout/excercise-lib/exercise-ui": [
+        "libs/excercise-lib/exercise-ui/src/index.ts"
+      ],
       "@workout/feature": ["libs/feature/src/index.ts"],
       "@workout/material": ["libs/material/src/index.ts"],
       "@workout/planner-tool/feature": [
         "libs/planner-tool/feature/src/index.ts"
+      ],
+      "@workout/shared/data-access/theme-store": [
+        "libs/shared/data-access/theme-store/src/index.ts"
+      ],
+      "@workout/shared/features/theme": [
+        "libs/shared/features/theme/src/index.ts"
+      ],
+      "@workout/shared/types": ["libs/shared/types/src/index.ts"],
+      "@workout/shared/ui/theme-toggle": [
+        "libs/shared/ui/theme-toggle/src/index.ts"
       ],
       "@workout/shell": ["libs/shell/src/index.ts"]
     }
