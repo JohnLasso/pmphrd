@@ -1,12 +1,9 @@
-<mat-grid-list cols="3">
-  <mat-grid-tile *ngFor="let group of groups" >
-  <workout-exercise-lib-ui
+<div fxLayout="row wrap" fxLayoutGap="16px grid">
+  <workout-exercise-lib-ui fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let group of groups"
     [groupName]="group.name"
     [exercises]="group.exercises"
     [expanded]="true"
     (exerciseAdded)="addExerciseToGroup(group, $event)"
     (exerciseRemoved)="removeExerciseFromGroup(group, $event)">
   </workout-exercise-lib-ui>
-  </mat-grid-tile>
-</mat-grid-list>
-
+</div>

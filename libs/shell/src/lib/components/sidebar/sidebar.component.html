@@ -1,3 +1,7 @@
+<button fxShow.sm="false"  fxShow.gt-md="false" fxShow="true" fxFlex *ngIf="!authService.isLoggedIn" (click)="authService.GoogleAuth()" mat-menu-item>
+  <mat-icon>exit_to_app</mat-icon>
+  Log in with Google
+</button>
 <mat-nav-list *ngIf="(authService.afAuth.authState | async) as user">
   <div class="profile-card">
     <div class="header">
@@ -9,6 +13,13 @@
            src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
            alt="{{user.displayName}}">
   </div>
+    <div>
+      <button *ngIf="authService.isLoggedIn" (click)="authService.SignOut()" mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        Sign out
+      </button>
+    </div>
+
   </div>
 
   <mat-divider></mat-divider>
@@ -16,6 +27,7 @@
   <a mat-list-item routerLinkActive="list-item-active" [routerLink]="['/planning']">Trainings Planner</a>
   <a mat-list-item routerLinkActive="list-item-active" [routerLink]="['/exercise-lib']">Exercise Library</a>
   <a mat-list-item routerLinkActive="list-item-active" [routerLink]="['/planning']">Dashboard/Analysis</a>
+  <a mat-list-item routerLinkActive="list-item-active" [routerLink]="['/planning']">How it works</a>
 
   <mat-divider></mat-divider>
 </mat-nav-list>

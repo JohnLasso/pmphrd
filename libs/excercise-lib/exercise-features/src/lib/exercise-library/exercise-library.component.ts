@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'workout-exercise-library',
   templateUrl: './exercise-library.component.html',
   styleUrls: ['./exercise-library.component.scss'],
 })
-export class ExerciseLibraryComponent {
+export class ExerciseLibraryComponent  {
 
   groups = [
     {
@@ -40,4 +40,5 @@ export class ExerciseLibraryComponent {
       group.exercises.splice(index, 1);
     }
   }
+
 }

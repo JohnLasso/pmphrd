@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "strict": false,
+    "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
       "@workout/auth": ["libs/auth/src/index.ts"],

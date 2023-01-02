@@ -7,8 +7,9 @@
     <span>Strength & Volume</span>
     <span class="menu-spacer"></span>
 
-    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-      <ul fxLayout="row" fxLayoutGap="20px">
+    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+    <div fxShow="true" fxHide.lt-md fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px" fxLayout="row">
         <li>
           <button mat-icon-button>
             <mat-icon>settings</mat-icon>
