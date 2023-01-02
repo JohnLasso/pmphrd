@@ -1,13 +1,22 @@
-<mat-expansion-panel>
+<mat-expansion-panel [expanded]="expanded" fxFlex>
   <mat-expansion-panel-header>
-    {{header}}
+    <mat-panel-title>
+      {{ groupName }}
+    </mat-panel-title>
   </mat-expansion-panel-header>
+  <div style="overflow-y: scroll; max-height: 200px">
+  <mat-list>
+    <mat-list-item *ngFor="let exercise of exercises">
+      {{ exercise }}
+      <button mat-icon-button (click)="removeExercise(exercise)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+  </div>
   <mat-form-field>
-    <mat-label>{{label}}</mat-label>
-    <mat-select [(value)]="selectedOption">
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-select>
+    <input matInput [formControl]="exerciseControl" placeholder="Exercise name">
   </mat-form-field>
+  <button mat-button (click)="addExercise()">Add Exercise</button>
 </mat-expansion-panel>
+

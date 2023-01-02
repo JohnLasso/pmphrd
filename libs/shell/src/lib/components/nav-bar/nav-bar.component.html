@@ -1,4 +1,4 @@
-<div>
+<div style="height: 80vh;">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -26,24 +26,21 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <a [routerLink]="['/login']" mat-list-item>Dashboard</a>
-        <a [routerLink]="['/planning']" mat-list-item>
-          <fa-icon size="2x" icon="user-circle"></fa-icon></a>
-        <a [routerLink]="['/exercise-lib']" mat-list-item>Exercise Library</a>
-        <button mat-raised-button (click)="authService.GoogleAuth()">
-          <i class="fab fa-google-plus-g"></i>
-          Log in with Google
-        </button>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <div fxLayout="row" fxLayoutAlign="start">
+    <!-- Side navigation menu -->
+    <mat-sidenav-container class="sidenav-container" fxFlexFill>
+      <mat-sidenav #sidenav>
+        <!-- Side navigation menu items -->
+      </mat-sidenav>
+      <mat-sidenav-content class="sidenav-content" fxFlexFill>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 </div>
+
+
+
 
 
 

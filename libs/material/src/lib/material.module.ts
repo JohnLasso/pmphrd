@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatGridListModule} from "@angular/material/grid-list";
 @NgModule({
   imports: [
     FlexLayoutModule,
@@ -32,6 +33,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTabsModule,
     MatExpansionModule,
     MatFormFieldModule,
+    MatGridListModule
   ],
   exports: [
     FlexLayoutModule,
@@ -50,6 +52,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTabsModule,
     MatExpansionModule,
     MatFormFieldModule,
+    MatGridListModule,
 
     FontAwesomeModule,
   ],

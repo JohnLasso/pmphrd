@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>Strength & Volume</span>
+    <span class="menu-spacer"></span>
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <li>
+          <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+          </button>
+        </li>
+        <li>
+          <workout-theme-toggle></workout-theme-toggle>
+        </li>
+        <li>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>person_outline</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button *ngIf="authService.isLoggedIn" (click)="authService.SignOut()" mat-menu-item>
+              <mat-icon>exit_to_app</mat-icon>
+              Sign out
+            </button>
+            <button *ngIf="!authService.isLoggedIn" (click)="authService.GoogleAuth()" mat-menu-item>
+              <mat-icon>exit_to_app</mat-icon>
+              Log in with Google
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,21 @@
+<mat-nav-list *ngIf="(authService.afAuth.authState | async) as user">
+  <div class="profile-card">
+    <div class="header">
+      <h2>{{user.displayName}}</h2>
+      <h4>{{user.email}}</h4>
+    </div>
+    <div>
+      <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+           src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+           alt="{{user.displayName}}">
+  </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <a mat-list-item routerLinkActive="list-item-active" [routerLink]="['/planning']">Trainings Planner</a>
+  <a mat-list-item routerLinkActive="list-item-active" [routerLink]="['/exercise-lib']">Exercise Library</a>
+  <a mat-list-item routerLinkActive="list-item-active" [routerLink]="['/planning']">Dashboard/Analysis</a>
+
+  <mat-divider></mat-divider>
+</mat-nav-list>

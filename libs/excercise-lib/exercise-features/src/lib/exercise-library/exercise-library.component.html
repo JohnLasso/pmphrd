@@ -1,3 +1,12 @@
-<workout-exercise-lib-ui header="Auswahloptionen" label="Wählen Sie eine Option" [options]="options"
-                              [selectedOption]="selectedOption">
-</workout-exercise-lib-ui>
+<mat-grid-list cols="3">
+  <mat-grid-tile *ngFor="let group of groups" >
+  <workout-exercise-lib-ui
+    [groupName]="group.name"
+    [exercises]="group.exercises"
+    [expanded]="true"
+    (exerciseAdded)="addExerciseToGroup(group, $event)"
+    (exerciseRemoved)="removeExerciseFromGroup(group, $event)">
+  </workout-exercise-lib-ui>
+  </mat-grid-tile>
+</mat-grid-list>
+

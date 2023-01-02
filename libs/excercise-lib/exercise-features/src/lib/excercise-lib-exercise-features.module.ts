@@ -4,9 +4,10 @@ import { ExerciseLibraryComponent } from './exercise-library/exercise-library.co
 import {ExerciseUiModule} from "@workout/excercise-lib/exercise-ui";
 import {RouterModule} from "@angular/router";
 import {exerciseLibFeatureRoutes} from "./exercise-lib-features.routes";
+import {MaterialModule} from "@workout/material";
 
 @NgModule({
-  imports: [CommonModule, ExerciseUiModule,
+  imports: [CommonModule, ExerciseUiModule, MaterialModule,
     RouterModule.forChild(exerciseLibFeatureRoutes),
   ],
   declarations: [ExerciseLibraryComponent],

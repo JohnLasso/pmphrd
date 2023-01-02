@@ -1,0 +1,11 @@
+<workout-header (toggleSideBarForMe)="sideBarToggler()"></workout-header>
+
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <workout-sidebar></workout-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+

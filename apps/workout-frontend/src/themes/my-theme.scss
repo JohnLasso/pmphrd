@@ -7,7 +7,7 @@
 
 // Define your theme with color palettes, typography and density
 
-$mat-theme-primary-palette: map-merge(mat.$cyan-palette, ( contrast: (100: #150c4a,)));
+$mat-theme-primary-palette: map-merge(mat.$pink-palette, ( contrast: (100: #150c4a,)));
 $mat-theme-primary: mat.define-palette(
     $mat-theme-primary-palette,
   $default: 100,

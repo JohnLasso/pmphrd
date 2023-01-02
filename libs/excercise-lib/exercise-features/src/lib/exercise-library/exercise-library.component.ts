@@ -1,28 +1,43 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {Exercise} from "@workout/excercise-lib/data-access";
-import {Store} from "@ngrx/store";
-import {selectExercises} from "@workout/excercise-lib/data-access";
-import {initialExercise} from "@workout/excercise-lib/data-access";
 
 @Component({
   selector: 'workout-exercise-library',
   templateUrl: './exercise-library.component.html',
   styleUrls: ['./exercise-library.component.scss'],
 })
-export class ExerciseLibraryComponent implements OnInit{
+export class ExerciseLibraryComponent {
 
-  options: string[] = ['Option 1', 'Option 2', 'Option 3'];
-  selectedOption: string;
-  exercises$?: Observable<Exercise[]>;
+  groups = [
+    {
+      name: 'Beine Fokus',
+      exercises: ['Lowbar squats', 'Front squats']
+    },
+    {
+      name: 'Rückenübung Fokus',
+      exercises: ['Conventional deadlifts', 'Sumo deadlifts']
+    },
+    {
+      name: 'Brust Fokus',
+      exercises: ['Conventional deadlifts', 'Sumo deadlifts']
+    },
+    {
+      name: 'Rückenübungen Support',
+      exercises: ['Conventional deadlifts', 'Sumo deadlifts']
+    },
+    {
+      name: 'Rückenübungen Support',
+      exercises: ['Conventional deadlifts', 'Sumo deadlifts']
+    }
+  ];
 
-  constructor(private store: Store) {
-    this.selectedOption = this.options[0];
-
+  addExerciseToGroup(group: any, exercise: string) {
+    group.exercises.push(exercise);
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(initialExercise());
-    this.exercises$ = this.store.select(selectExercises);
+  removeExerciseFromGroup(group: any, exercise: string) {
+    const index = group.exercises.indexOf(exercise);
+    if (index > -1) {
+      group.exercises.splice(index, 1);
+    }
   }
 }
