@@ -33,6 +33,9 @@
       "@workout/planner-tool/feature": [
         "libs/planner-tool/feature/src/index.ts"
       ],
+      "@workout/shared/data-access/firebase": [
+        "libs/shared/data-access/firebase/src/index.ts"
+      ],
       "@workout/shared/data-access/theme-store": [
         "libs/shared/data-access/theme-store/src/index.ts"
       ],

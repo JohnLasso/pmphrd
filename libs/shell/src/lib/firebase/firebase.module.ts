@@ -5,12 +5,17 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {getAuth, provideAuth} from "@angular/fire/auth";
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+
 
 
 @NgModule({
   declarations: [],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
@@ -18,7 +23,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
   ],
   exports: [AngularFireModule, AngularFireAuthModule, AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule,],
+    AngularFireDatabaseModule],
 })
 export class FirebaseModule {
 }

@@ -1,9 +1,45 @@
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field>
+        <input matInput [formControl]="exerciseGroupControl" placeholder="Exercise group name">
+      </mat-form-field>
+    </td>
+    <td>
+      <button style="margin-bottom: 20px" class="ml-3" mat-fab color="primary" (click)="createExerciseGroup(exerciseGroupControl.value)">Add</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Select exercise group (delete)</mat-label>
+        <div >
+          <mat-select [(value)]="selectedGroup">
+            <mat-option  [value]="group.id"  *ngFor="let group of exerciseGroups$ | async">
+              {{group.id}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </mat-form-field>
+    </td>
+    <td>
+      <button style="margin-bottom: 20px" class="ml-3" mat-fab color="primary" (click)="deleteExerciseGroup(selectedGroup)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+
+<mat-divider></mat-divider>
 <div fxLayout="row wrap" fxLayoutGap="16px grid">
-  <workout-exercise-lib-ui fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let group of groups"
-    [groupName]="group.name"
-    [exercises]="group.exercises"
+  <workout-exercise-lib-ui  fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let exercise of (exercises$ | async)"
+    [groupName]="exercise.id"
+    [exercises]="exercise.name"
     [expanded]="true"
-    (exerciseAdded)="addExerciseToGroup(group, $event)"
-    (exerciseRemoved)="removeExerciseFromGroup(group, $event)">
+    (exerciseAdded)="addExerciseToGroup(exercise, $event)"
+    (exerciseRemoved)="removeExerciseFromGroup(exercise, $event)">
   </workout-exercise-lib-ui>
 </div>

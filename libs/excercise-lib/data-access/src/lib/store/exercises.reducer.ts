@@ -7,7 +7,7 @@ export interface ExerciseState {
 }
 
 export const initialState: ExerciseState = {
-  exercises: [{name: 'KB', description: 'knie', image: 'image'}]
+  exercises: [{type: 'NEU', name: ['knie']}]
 };
 export const exerciseReducerOther = createReducer(
   initialState,

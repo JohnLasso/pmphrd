@@ -1,5 +1,5 @@
 export interface Exercise {
-  name: string;
-  description: string;
-  image: string;
+  id?: string;
+  type?: string;
+  name?: string[];
 }
